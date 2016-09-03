@@ -1,6 +1,131 @@
-<html>
-<head><title>Commons app</title></head>
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>Commons App</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
 <body>
-All about the Commons app :-)
+  <div class="section navigation-section">
+    <div class="hamburger-div" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="section navigation-items" id="nav-items">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="#description">About</a></li>
+        <li><a class="nav-link" href="#community">Community</a></li>
+        <li><a class="nav-link" href="#features">Features</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </nav>
+  <header class="section intro-section">
+    <div class="header-div">
+      <h1 class="page-header">Commons Mobile App</h1>
+    </div>
+    <div class="play-store-div">
+      <a href="https://play.google.com/store/apps/details?id=fr.free.nrw.commons"
+         alt="Commons App on Google Play">
+        <img class="image" src="images/google-play-badge.png"/>
+      </a>
+    </div>
+  </header>
+  <div class="section description-section anchor-offset" id="description">
+    <div class="inner">
+      <h2 class="section-header">The App</h2>
+      <p>
+	The Commons Mobile App is a community maintained app that makes it
+        easy to upload your pictures to Wikimedia Commons. The app can be
+        installed on any Android device and uses your Wikimedia user account
+        to upload photos.
+      </p>
+      <div class="button-div">
+        <a class="button" href="https://play.google.com/store/apps/details?id=fr.free.nrw.commons">App store page</a>
+      </div>
+    </div>
+  </div>
+  <div class="section-divider"></div>
+  </div>
+  <div class="section anchor-offset" id="community">
+    <div class="inner">
+	    <h2 class="section-header">The Community</h2>
+      	<p>
+      	  Join one of the largest photo and multimedia communities in the World.
+      	  Commons is not only the image repository for Wikpeda, but an independent
+      	  project that seeks to document the world with photos, videos and
+      	  recordings.
+      	</p>
+      	<p>
+      	  The community organizes many annual events and contests, such as
+      	  Wiki Loves Monuments and Wiki Loves Earth. By using the app you
+      	  can easily take pictures when you come across a landmark that
+      	  might be missing a picture, requires a different angle, or has
+      	  not been photographed for a while.
+      	</p>
+      	<div class="button-div">
+      	  <a class="button" href="https://commons.wikimedia.org/w/index.php?title=Special:UserLogin&returnto=Main+Page">Join Commons</a>
+      	</div>
+    </div>
+  </div>
+  <div class="section-divider"></div>
+  <div class="feature-section anchor-offset" id="features">
+    <div class="inner">
+      <h2 class="section-header">Features</h2>
+      <div class="item-container">
+        <div class="item">
+          <div class="hover-bar"></div>
+          <h3 class="item-header">Upload your files anywhere</h3>
+          <p class="item-text">
+            You can upload your pictures anywhere you have time. For
+            example during the bus ride home from a photo trip.
+          </p>
+        </div>
+        <div class="item">
+          <div class="hover-bar"></div>
+          <h3 class="item-header">View your uploads</h3>
+          <p class="item-text">
+            The app shows all the uploads you made to Commons. This is
+            a great way to easily view your contributions.
+          </p>
+        </div>
+        <div class="item">
+          <div class="hover-bar"></div>
+          <h3 class="item-header">View nearby missing images</h3>
+          <p class="item-text">
+            The app lets you view nearby missing images. This way
+            you help out Wikipedia to have images for all articles,
+            and you will discover beautiful places close to you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-section">
+    <div class="name-div">
+      Commons Mobile App
+    </div>
+    <div class="info-div">
+      <ul class="info-list">
+        <li><a href="https://github.com/commons-app/apps-android-commons">Source Code</a></li>
+        <li><a href="https://github.com/commons-app/apps-android-commons/issues">Issues</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="js/modernizr-custom.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+      var hamburger = document.getElementById("hamburger");
+      var navItems = document.getElementById("nav-items");
+
+      hamburger.addEventListener("click", function() {
+        hamburger.classList.toggle('open');
+        navItems.classList.toggle('open');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,133 @@
+.navigation-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: $commonsBlue;
+    height: 60px;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
+
+    .hamburger-div {
+        display: none;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        height: 40px;
+        width: 40px;
+
+        span {
+            display: block;
+            position: absolute;
+            height: 5px;
+            width: 100%;
+            background: white;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+
+            &:nth-child(1) {
+                top: 5px;
+            }
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                top: 18px;
+            }
+
+            &:nth-child(4) {
+                top: 31px;
+            }
+        }
+
+        &.open span {
+            &:nth-child(1) {
+                top: 18px;
+                width: 0%;
+                left: 50%;
+            }
+
+            &:nth-child(2) {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+
+            &:nth-child(4) {
+                top: 18px;
+                width: 0%;
+                left: 50%;
+            }
+        }
+    }
+
+    .nav-list {
+        list-style: none;
+        background-color: $commonsBlue;
+        font-size: 0;
+        line-height: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            font-size: 20px;
+            line-height: $navigationHeight;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            display: block;
+            height: $navigationHeight;
+            padding: 0 24px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.1s linear;
+
+            .no-touchevents &:hover {
+                height: 56px;
+                border-bottom: 4px solid white;
+            }
+        }
+    }
+
+    @media screen and (max-width: $bpMobile) {
+        .hamburger-div {
+            display: block;
+        }
+
+        .navigation-items {
+            height: 100vh;
+            width: 250px;
+            left: 0;
+            transform: translateX(-100%);
+            position: absolute;
+            transition: transform 0.1s linear;
+            top: $navigationHeight;
+            background-color: $commonsBlue;
+
+            &.open {
+                transform: translateX(0);
+            }
+        }
+
+        .nav-list {
+            li {
+                display: block;
+            }
+
+            .nav-link {
+                border-left: 4px solid $commonsBlue;
+
+                .no-touchevents &:hover {
+                    height: $navigationHeight;
+                    border-bottom: none;
+                    border-left: 4px solid white;
+                }
+            }
+        }
+    }
+}
+

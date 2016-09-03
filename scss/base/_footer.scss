@@ -1,0 +1,42 @@
+.footer-section {
+    background-color: #565656;
+    padding: 50px 20px;
+    font-size: 0;
+    line-height: 0;
+    border-top: 2px solid #eeeeee;
+
+    .name-div {
+        font-size: 40px;
+        line-height: 40px;
+        color: white;
+        text-align: left;
+        width: 50%;
+        display: inline-block;
+    }
+
+    .info-div {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .info-list {
+        list-style: none;
+
+        li {
+            display: inline-block;
+            line-height: 40px;
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ccc;
+            padding: 0 20px;
+
+            .no-touchevents &:hover {
+                color: white;
+            }
+        }
+    }
+}
+
