@@ -82,7 +82,7 @@ p {
   position: relative;
   overflow: hidden;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18); }
-  .no-touchevent .item:hover .hover-bar {
+  .no-touchevents .item:hover .hover-bar {
     transform: translateX(5px); }
   @media screen and (max-width: 600px) {
     .item {
