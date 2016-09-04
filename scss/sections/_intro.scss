@@ -1,0 +1,46 @@
+.intro-section {
+    height: 600px;
+    background-color: #555;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Pair_of_Merops_apiaster_feeding.jpg/1280px-Pair_of_Merops_apiaster_feeding.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    .header-div {
+        position: absolute;
+        top: 200px;
+        left: 100px;
+    }
+
+    .page-header {
+        font-size: 80px;
+        font-weight: 300;
+        color: white;
+        text-shadow: 1px 1px black;
+    }
+
+    .play-store-div {
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
+        width: 300px;
+
+        .image {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @media screen and (max-width: $bpSix) {
+        .header-div {
+            left: 0;
+        }
+
+        .page-header {
+            font-size: 60px;
+            text-align: center;
+        }
+    }
+}
+

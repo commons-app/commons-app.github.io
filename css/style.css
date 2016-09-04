@@ -1,0 +1,254 @@
+* {
+  font-family: sans-serif; }
+
+body {
+  padding: 0;
+  margin: 60px 0 0 0; }
+
+p {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 300; }
+
+.button {
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  background-color: #5d5d5d;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.1s ease-in-out; }
+  .no-touchevents .button:hover {
+    background-color: #006699; }
+
+.button-div {
+  padding: 30px 0; }
+
+.section-header {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 300; }
+
+.item-header {
+  font-weight: 400;
+  color: #006699;
+  padding-top: 10px; }
+
+.section {
+  width: 100%;
+  box-sizing: border-box; }
+
+.inner {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  max-width: 900px;
+  box-sizing: border-box; }
+
+.section-divider {
+  background-image: url("../images/section-divider.svg");
+  width: 100%;
+  max-width: 600px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 40px auto 10px auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+  @media screen and (max-width: 600px) {
+    .section-divider {
+      max-width: 400px; } }
+
+.anchor-offset:before {
+  content: "";
+  display: block;
+  height: 60px;
+  margin: -60px 0 0; }
+
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-top: 10px; }
+
+.item {
+  width: calc(50% - 20px);
+  background-color: #fafafa;
+  box-sizing: border-box;
+  padding: 0 20px;
+  margin: 0 10px 20px 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18); }
+  .no-touchevent .item:hover .hover-bar {
+    transform: translateX(5px); }
+  @media screen and (max-width: 600px) {
+    .item {
+      width: 100%;
+      margin: 0 0 20px 0; } }
+
+.item-text {
+  text-align: left;
+  font-size: 18px; }
+
+.hover-bar {
+  position: absolute;
+  left: -10px;
+  bottom: 0;
+  background-color: #006699;
+  width: 10px;
+  height: 100%;
+  transition: all 0.2s ease-in-out; }
+
+.navigation-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #006699;
+  height: 60px;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3); }
+  .navigation-section .hamburger-div {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    height: 40px;
+    width: 40px; }
+    .navigation-section .hamburger-div span {
+      display: block;
+      position: absolute;
+      height: 5px;
+      width: 100%;
+      background: white;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .25s ease-in-out; }
+      .navigation-section .hamburger-div span:nth-child(1) {
+        top: 5px; }
+      .navigation-section .hamburger-div span:nth-child(2), .navigation-section .hamburger-div span:nth-child(3) {
+        top: 18px; }
+      .navigation-section .hamburger-div span:nth-child(4) {
+        top: 31px; }
+    .navigation-section .hamburger-div.open span:nth-child(1) {
+      top: 18px;
+      width: 0%;
+      left: 50%; }
+    .navigation-section .hamburger-div.open span:nth-child(2) {
+      transform: rotate(45deg); }
+    .navigation-section .hamburger-div.open span:nth-child(3) {
+      transform: rotate(-45deg); }
+    .navigation-section .hamburger-div.open span:nth-child(4) {
+      top: 18px;
+      width: 0%;
+      left: 50%; }
+  .navigation-section .nav-list {
+    list-style: none;
+    background-color: #006699;
+    font-size: 0;
+    line-height: 0;
+    padding: 0; }
+    .navigation-section .nav-list li {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 60px;
+      color: white;
+      letter-spacing: 1px; }
+    .navigation-section .nav-list .nav-link {
+      display: block;
+      height: 60px;
+      padding: 0 24px;
+      color: white;
+      text-decoration: none;
+      transition: all 0.1s linear; }
+      .no-touchevents .navigation-section .nav-list .nav-link:hover {
+        height: 56px;
+        border-bottom: 4px solid white; }
+  @media screen and (max-width: 900px) {
+    .navigation-section .hamburger-div {
+      display: block; }
+    .navigation-section .navigation-items {
+      height: 100vh;
+      width: 250px;
+      left: 0;
+      transform: translateX(-100%);
+      position: absolute;
+      transition: transform 0.1s linear;
+      top: 60px;
+      background-color: #006699; }
+      .navigation-section .navigation-items.open {
+        transform: translateX(0); }
+    .navigation-section .nav-list li {
+      display: block; }
+    .navigation-section .nav-list .nav-link {
+      border-left: 4px solid #006699; }
+      .no-touchevents .navigation-section .nav-list .nav-link:hover {
+        height: 60px;
+        border-bottom: none;
+        border-left: 4px solid white; } }
+
+.footer-section {
+  background-color: #565656;
+  padding: 50px 20px;
+  font-size: 0;
+  line-height: 0;
+  border-top: 2px solid #eeeeee; }
+  .footer-section .name-div {
+    font-size: 40px;
+    line-height: 40px;
+    color: white;
+    text-align: left;
+    width: 50%;
+    display: inline-block; }
+  .footer-section .info-div {
+    width: 50%;
+    display: inline-block; }
+  .footer-section .info-list {
+    list-style: none; }
+    .footer-section .info-list li {
+      display: inline-block;
+      line-height: 40px;
+      font-size: 16px; }
+    .footer-section .info-list a {
+      text-decoration: none;
+      color: #ccc;
+      padding: 0 20px; }
+      .no-touchevents .footer-section .info-list a:hover {
+        color: white; }
+
+.intro-section {
+  height: 600px;
+  background-color: #555;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Pair_of_Merops_apiaster_feeding.jpg/1280px-Pair_of_Merops_apiaster_feeding.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+  .intro-section .header-div {
+    position: absolute;
+    top: 200px;
+    left: 100px; }
+  .intro-section .page-header {
+    font-size: 80px;
+    font-weight: 300;
+    color: white;
+    text-shadow: 1px 1px black; }
+  .intro-section .play-store-div {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 300px; }
+    .intro-section .play-store-div .image {
+      width: 100%;
+      height: auto; }
+  @media screen and (max-width: 600px) {
+    .intro-section .header-div {
+      left: 0; }
+    .intro-section .page-header {
+      font-size: 60px;
+      text-align: center; } }
+
+/*# sourceMappingURL=style.css.map */

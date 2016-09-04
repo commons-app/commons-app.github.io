@@ -1,0 +1,139 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: $navigationHeight 0 0 0;
+}
+
+p {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 300;
+}
+
+// Buttons
+
+.button {
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    background-color: #5d5d5d;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.1s ease-in-out;
+
+    .no-touchevents &:hover {
+        background-color: $commonsBlue;
+    }
+}
+
+.button-div {
+    padding: 30px 0;
+}
+
+// Headers
+
+.section-header {
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 300;
+}
+
+.item-header {
+    font-weight: 400;
+    color: $commonsBlue;
+    padding-top: 10px;
+}
+
+// Sections
+
+.section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inner {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    max-width: $nine;
+    box-sizing: border-box;
+}
+
+.section-divider {
+    background-image: url("../images/section-divider.svg");
+    width: 100%;
+    max-width: 600px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 40px auto 10px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    @media screen and (max-width: $bpSix) {
+        max-width: 400px;
+    }
+}
+
+// Correct for html anchor offset
+
+.anchor-offset {
+    &:before {
+        content: "";
+        display: block;
+        height: $navigationHeight;
+        margin: -$navigationHeight 0 0;
+    }
+}
+
+// Inline elements
+
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-top: 10px;
+}
+
+.item {
+    width: calc(50% - 20px);
+    background-color: #fafafa;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin: 0 10px 20px 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+
+    .no-touchevent &:hover {
+        .hover-bar {
+            transform: translateX(5px)
+        }
+    }
+
+    @media screen and (max-width: $bpSix) {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+}
+
+.item-text {
+    text-align: left;
+    font-size: 18px;
+}
+
+.hover-bar {
+    position: absolute;
+    left: -10px;
+    bottom: 0;
+    background-color: $commonsBlue;
+    width: 10px;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
