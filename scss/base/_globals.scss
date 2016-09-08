@@ -13,6 +13,10 @@ p {
     font-weight: 300;
 }
 
+a {
+    color: $commonsBlue;
+}
+
 // Buttons
 
 .button {
@@ -137,3 +141,32 @@ p {
     transition: all 0.2s ease-in-out;
 }
 
+// Lists
+
+.large-count {
+    padding-left: 0;
+    text-align: left;
+    list-style: none;
+    counter-reset: first-order-counter;
+
+    li {
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: 300;
+        line-height: 50px;
+        margin-left: 70px;
+        position: relative;
+        padding-bottom: 20px;
+
+        &:before {
+	        content: counter(first-order-counter);
+	        counter-increment: first-order-counter;
+	        font-size: 50px;
+            line-height: 70px;
+            position: absolute;
+            left: -50px;
+            top: -10px;
+            color: $commonsBlue;
+        }
+    }
+}

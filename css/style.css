@@ -10,6 +10,9 @@ p {
   line-height: 28px;
   font-weight: 300; }
 
+a {
+  color: #006699; }
+
 .button {
   font-size: 20px;
   line-height: 20px;
@@ -101,6 +104,29 @@ p {
   width: 10px;
   height: 100%;
   transition: all 0.2s ease-in-out; }
+
+.large-count {
+  padding-left: 0;
+  text-align: left;
+  list-style: none;
+  counter-reset: first-order-counter; }
+  .large-count li {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 300;
+    line-height: 50px;
+    margin-left: 70px;
+    position: relative;
+    padding-bottom: 20px; }
+    .large-count li:before {
+      content: counter(first-order-counter);
+      counter-increment: first-order-counter;
+      font-size: 50px;
+      line-height: 70px;
+      position: absolute;
+      left: -50px;
+      top: -10px;
+      color: #006699; }
 
 .navigation-section {
   position: fixed;
