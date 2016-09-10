@@ -115,6 +115,15 @@ a {
         height: $navigationHeight;
         margin: -$navigationHeight 0 0;
     }
+
+    &.grey-section {
+        &:before {
+            content: "";
+            display: block;
+            height: calc(#{$navigationHeight} + 20px);
+            margin: calc(-#{$navigationHeight} + 20px) 0 0;
+        }
+    }
 }
 
 // Inline elements

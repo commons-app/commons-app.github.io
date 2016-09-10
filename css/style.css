@@ -85,6 +85,11 @@ a {
   display: block;
   height: 60px;
   margin: -60px 0 0; }
+.anchor-offset.grey-section:before {
+  content: "";
+  display: block;
+  height: calc(60px + 20px);
+  margin: calc(-60px + 20px) 0 0; }
 
 .item-container {
   display: flex;
