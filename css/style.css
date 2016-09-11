@@ -173,12 +173,12 @@ a {
       transform: rotate(-5deg);
       text-shadow: 3px 3px #4d4d4d; }
   .guide-list .plus:before {
-    content: '+';
+    content: '\2714';
     left: -55px;
     color: #18a718; }
   .guide-list .minus:before {
-    content: '\2012';
-    left: -50px;
+    content: '\2718';
+    left: -60px;
     color: #ff4e4e; }
 
 .navigation-section {
