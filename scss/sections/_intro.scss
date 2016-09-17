@@ -11,6 +11,10 @@
         position: absolute;
         top: 200px;
         left: 100px;
+
+        @media screen and (max-width: 1200px) {
+            top: 40px;
+        }
     }
 
     .page-header {
@@ -20,11 +24,13 @@
         text-shadow: 1px 1px black;
     }
 
-    .play-store-div {
+    .badge-div {
         position: absolute;
-        bottom: 50px;
+        bottom: 10px;
         right: 50px;
         width: 300px;
+        display: flex;
+        flex-direction: column;
 
         .image {
             width: 100%;
