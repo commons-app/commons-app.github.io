@@ -13,6 +13,9 @@ p {
 a {
   color: #006699; }
 
+.badge-link {
+  display: block; }
+
 .button {
   font-size: 20px;
   line-height: 20px;
@@ -310,17 +313,22 @@ a {
     position: absolute;
     top: 200px;
     left: 100px; }
+    @media screen and (max-width: 1200px) {
+      .intro-section .header-div {
+        top: 40px; } }
   .intro-section .page-header {
     font-size: 80px;
     font-weight: 300;
     color: white;
     text-shadow: 1px 1px black; }
-  .intro-section .play-store-div {
+  .intro-section .badge-div {
     position: absolute;
-    bottom: 50px;
+    bottom: 10px;
     right: 50px;
-    width: 300px; }
-    .intro-section .play-store-div .image {
+    width: 300px;
+    display: flex;
+    flex-direction: column; }
+    .intro-section .badge-div .image {
       width: 100%;
       height: auto; }
   @media screen and (max-width: 600px) {
