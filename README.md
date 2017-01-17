@@ -1,8 +1,8 @@
-# Landing page for Wikimedia Commons Mobile App
+# Landing page for Wikimedia Commons Mobile App Bootstrap Version
 
-This is the landing page for the [Wikimedia Commons Mobile App](https://github.com/commons-app/apps-android-commons). You can visit it at: https://commons-app.github.io/
+This is my version of the landing page for the [Wikimedia Commons Mobile App](https://github.com/commons-app/apps-android-commons), created for Bootstrap.
 
 ## Contributing
 
-Contributions are welcome. Please make sure your changes work on small screens. To compile the SCSS files to CSS you can use the Grunt task in the main directory. HTML is indented with 2 lines everything else with 4 lines.
+Contributions are welcome. Please make sure your changes work on small screens. Everything is indented with tabs.
 
