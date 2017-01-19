@@ -1,8 +1,7 @@
-# Landing page for Wikimedia Commons Mobile App Bootstrap Version
+# Landing page for Wikimedia Commons Mobile App
 
-This is my version of the landing page for the [Wikimedia Commons Mobile App](https://github.com/commons-app/apps-android-commons), created for Bootstrap.
+This is the landing page for the [Wikimedia Commons Mobile App](https://github.com/commons-app/apps-android-commons). You can visit it at: https://commons-app.github.io/
 
 ## Contributing
 
-Contributions are welcome. Please make sure your changes work on small screens. Everything is indented with tabs.
-
+Contributions are welcome. Please make sure your changes work on small screens. Currently Boostrap v4 alpha is being used.
