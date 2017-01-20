@@ -1,0 +1,161 @@
+/* Navbar */
+
+body {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.bg-primary {
+    background-color: #006699 !important;
+}
+
+
+/* Navbar: Hack to jump to correct anchor position by @mnot */
+
+*[id]:before {
+    display: block;
+    content: " ";
+    margin-top: -75px;
+    height: 75px;
+    visibility: hidden;
+}
+
+
+/* Jumbotron */
+
+.jumbotron {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Pair_of_Merops_apiaster_feeding.jpg/1280px-Pair_of_Merops_apiaster_feeding.jpg');
+    background-position: center top;
+    background-size: cover;
+    color: #fff;
+}
+
+.jumbotron h1 {
+    font-size: 4rem;
+    text-shadow: 0 0 0.5rem #000;
+    text-align: left;
+}
+
+.jumbotron .container {
+    height: 500px;
+}
+
+.jumbotron .app-badge {
+    position: absolute;
+    right: 0;
+}
+
+.jumbotron .app-badge img {
+    width: 300px;
+}
+
+
+/* Matching commons-app theme */
+
+.btn-outline-primary:hover {
+    background-color: #006699;
+}
+
+.section-divider {
+    background-image: url('../images/section-divider.svg');
+    width: 100%;
+    max-width: 600px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+
+/* Feature items */
+
+.item {
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+    margin: 10px -5px;
+}
+
+.item-image {
+    height: 440px;
+    background-color: lavender;
+    padding: 20px 0;
+}
+
+.feature-image {
+    height: 100%;
+    width: auto;
+}
+
+.item-header {
+    padding-top: 20px;
+}
+
+.item-text {
+    padding-bottom: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/* Installation & Usage */
+
+.large-count {
+    padding-left: 0;
+    text-align: left;
+    list-style: none;
+    counter-reset: first-order-counter;
+}
+
+.large-count li {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 300;
+    line-height: 40px;
+    margin-left: 70px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.large-count li:before {
+    content: counter(first-order-counter);
+    counter-increment: first-order-counter;
+    font-size: 50px;
+    line-height: 70px;
+    position: absolute;
+    left: -50px;
+    top: -15px;
+    color: #006699;
+}
+
+
+/* Photo guidelines */
+
+.guide-list {
+    padding-left: 0;
+    text-align: left;
+    list-style: none;
+}
+
+.guide-list li {
+    padding: 10px;
+    font-size: 1.25rem;
+}
+
+
+/* Footer */
+
+footer {
+    margin-bottom: 70px;
+}
+
+footer h2 {
+    margin-bottom: 20px;
+}
+
+
+/* Misc */
+
+.inner {
+    max-width: 900px;
+}
