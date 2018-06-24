@@ -6,20 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Commons Mobile App</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="style.css"/>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-primary">
-        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#">Commons Mobile App</a>
+            <span class="navbar-brand mb-0 h1">Commons Mobile App</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <div class="navbar-collapse collapse" id="navbarsExampleDefault" aria-expanded="false">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="#description">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
@@ -27,17 +26,17 @@
                     <li class="nav-item"><a class="nav-link" href="#usage">Usage</a></li>
                     <li class="nav-item"><a class="nav-link" href="#photo-guide">Photo Guidelines</a></li>
                 </ul>
-            </div>
-        </div>
+            </div> <!-- .collapse -->
+        </div> <!-- .container -->
     </nav>
 
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1>Commons Mobile App</h1>
-            <a class="app-badge" href="https://f-droid.org/repository/browse/?fdid=fr.free.nrw.commons" style="bottom: 70px">
+            <h1 class="display-4">Commons Mobile App</h1>
+            <a class="app-badge f-droid-badge" href="https://f-droid.org/repository/browse/?fdid=fr.free.nrw.commons">
                 <img src="images/f-droid-badge.png" alt="F-Droid Logo" />
             </a>
-            <a class="app-badge" href="https://play.google.com/store/apps/details?id=fr.free.nrw.commons" style="bottom: -20px">
+            <a class="app-badge play-store-badge" href="https://play.google.com/store/apps/details?id=fr.free.nrw.commons">
                 <img src="images/google-play-badge.png" alt="Google Play Store badge" />
             </a>
         </div>
@@ -165,6 +164,9 @@
             <img src="images/commons-app-qr.png"/>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>
-
