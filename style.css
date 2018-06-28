@@ -57,7 +57,7 @@ body {
 }
 
 .section-divider {
-    background-image: url('../images/section-divider.svg');
+    background-image: url('images/section-divider.svg');
     width: 100%;
     max-width: 600px;
     height: 50px;
@@ -163,4 +163,3 @@ footer h2 {
 .qr-code-div {
     padding: 30px;
 }
-
