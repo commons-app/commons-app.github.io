@@ -1,8 +1,10 @@
 /* Navbar */
 
 body {
+
   padding-top: 2rem;
   text-align: center;
+
 }
 
 .bg-primary {
@@ -71,7 +73,9 @@ body {
 }
 
 .jumbotron .container {
+
   height: 500px;
+
 }
 
 .jumbotron .app-badge {
@@ -82,6 +86,17 @@ body {
 .jumbotron .app-badge img {
   width: 300px;
 }
+
+
+/*
+.jumbotron .app-badge.f-droid-badge {
+    bottom: 70px;
+}
+
+.jumbotron .app-badge.play-store-badge {
+    bottom: -20px;
+}
+*/
 
 /* Matching commons-app theme */
 
