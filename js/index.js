@@ -24,4 +24,10 @@ $(document).ready(function() {
       }
     })
   })
+
+  // Auto close navbar on clicking a link in it
+  // Ref: https://stackoverflow.com/a/14250000/5614968
+  $('.navbar-collapse a').click(function() {
+    $(".navbar-collapse").collapse('hide');
+  });
 })
