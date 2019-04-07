@@ -128,7 +128,7 @@ body {
 .large-count li:before {
     content: counter(first-order-counter);
     counter-increment: first-order-counter;
-    font-size: 50px;
+    font-size: 30px;
     line-height: 70px;
     position: absolute;
     left: -50px;
@@ -169,5 +169,5 @@ footer h2 {
 }
 
 .qr-code-div {
-    padding: 30px;
+    padding: 30px 15px;
 }
