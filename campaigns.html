@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Commons Mobile App Campaign Editor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    <div class="container py-4">
+		<h1 class="py-4">Campaign editor</h1>
+
+		<section class="py-4">
+			<h2>Config</h2>
+			<form class="pb-4" oninput="generateJSON()" onchange="generateJSON()">
+				<div class="form-check py-2">
+					<input type="checkbox" class="form-check-input" id="showOnlyLiveCampaigns">
+					<label class="form-check-label" for="showOnlyLiveCampaigns">Show only live campaigns</label>
+				</div>
+				<div class="form-group py-2">
+					<label for="sortBy">Sort by</label>
+					<input type="text" class="form-control" id="sortBy" placeholder="title/startDate/endDate">
+				</div>
+			</form>
+		</section>
+		
+		<section>
+			<h2>Campaigns</h2>
+			<form oninput="generateJSON()" onchange="generateJSON()" id="form"></form>
+			<div class="btn-group pb-4" role="group">
+				<button onclick="addSection()" type="button" class="btn btn-outline-primary">Add campaign</button>
+			</div>
+		</section>
+
+		<section class="py-4">
+			<h2>Result</h2>
+			<pre class="form-control" id="result"></pre>
+			<div class="btn-group" role="group">
+				<button onclick="copyToClipboard(result.innerText);this.innerText='Copied';setTimeout(() => {this.innerText='Copy to clipboard'}, 750);" type="button" class="btn btn-outline-primary">Copy to clipboard</button>
+			</div>
+		</section>
+	</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+	<script src="js/index.js"></script>
+	<script>
+		const form = document.getElementById('form');
+		const result = document.getElementById('result');
+		addSection();
+
+		function addSection() {
+			const section = document.createElement("div");
+			const n = form.childElementCount;
+			section.innerHTML = 
+				`<div class="form-group">
+					<label for="title${n}">Title</label>
+					<input type="text" class="form-control" id="title${n}" placeholder="Wiki Loves Monuments">
+				</div>
+				<div class="form-group">
+					<label for="description${n}">Description</label>
+					<input type="text" class="form-control" id="description${n}" placeholder="Wiki Loves Monuments">
+				</div>
+				<div class="form-group">
+					<label for="startDate${n}">Start date</label>
+					<input type="date" class="form-control" id="startDate${n}" placeholder="2018-09-01">
+				</div>
+				<div class="form-group">
+					<label for="endDate${n}">End date</label>
+					<input type="date" class="form-control" id="endDate${n}" placeholder="2018-09-01">
+				</div>
+				<div class="form-group">
+					<label for="link${n}">Link</label>
+					<input type="url" class="form-control" id="link${n}" placeholder="https://www.wikilovesmonuments.org/contest/">
+				</div>`;
+			section.classList.add(["py-2"]);
+			form.appendChild(section);
+			generateJSON();
+		}
+
+		function generateJSON() {
+			const campaigns = [...form.children].map((e, n) => {
+				return {
+					"title": document.getElementById(`title${n}`).value,
+					"description": document.getElementById(`description${n}`).value,
+					"startDate": document.getElementById(`startDate${n}`).value,
+					"endDate": document.getElementById(`endDate${n}`).value,
+					"link": document.getElementById(`link${n}`).value
+				}
+			}).filter(campaign => campaign.title.trim().length != 0);
+
+			const config = {
+				"showOnlyLiveCampaigns": document.getElementById('showOnlyLiveCampaigns').checked,
+				"sortBy": document.getElementById('sortBy').value.length == 0 ? 'title/startDate/endDate' : document.getElementById('sortBy').value
+			}
+
+			result.innerHTML = JSON.stringify({
+				config: config,
+				campaigns: campaigns
+			}, null, 4);
+		}
+
+		function copyToClipboard(str) {
+			const textarea = document.createElement('textarea');
+			textarea.value = str;
+			document.body.appendChild(textarea);
+			textarea.select();
+			document.execCommand('copy');
+			document.body.removeChild(textarea);
+		}
+	</script>
+</body>
+</html>
