@@ -38,6 +38,7 @@
 		<section class="py-4">
 			<h2>Result</h2>
 			<pre class="form-control" id="result"></pre>
+			<p id="resultValidity"></p>
 			<div class="btn-group" role="group">
 				<button onclick="copyToClipboard(result.innerText);this.innerText='Copied';setTimeout(() => {this.innerText='Copy to clipboard'}, 750);" type="button" class="btn btn-outline-primary">Copy to clipboard</button>
 			</div>
@@ -48,10 +49,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-	<script src="js/index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ajv/6.10.0/ajv.min.js" integrity="sha256-KvJf+3L+RQpJ3LEBMcU2Yh29dlCt1CHbxKhwLtJUb94=" crossorigin="anonymous"></script>
+
 	<script>
 		const form = document.getElementById('form');
 		const result = document.getElementById('result');
+		const resultValidity = document.getElementById('resultValidity');
+		let validatorFunc = null;
+		fetch('https://raw.githubusercontent.com/commons-app/campaigns/master/schema.json')
+			.then(res => res.json())
+			.then(schema => validatorFunc = (new Ajv()).compile(schema))
+			.then(() => generateJSON());
 		addSection();
 
 		function addSection() {
@@ -80,7 +88,6 @@
 				</div>`;
 			section.classList.add(["py-2"]);
 			form.appendChild(section);
-			generateJSON();
 		}
 
 		function generateJSON() {
@@ -99,10 +106,23 @@
 				"sortBy": document.getElementById('sortBy').value.length == 0 ? 'title/startDate/endDate' : document.getElementById('sortBy').value
 			}
 
-			result.innerHTML = JSON.stringify({
+			resultObj = {
 				config: config,
 				campaigns: campaigns
-			}, null, 4);
+			}
+
+			// Validate JSON
+			if (validatorFunc != null) {
+				const isValid = validatorFunc(resultObj);
+				result.style.backgroundColor = isValid ? 'rgba(0,255,0,0.1)' : 'rgba(255,0,0,0.2)';
+				resultValidity.innerText = isValid ? 'JSON valid ✔️' : 'JSON invalid ❌';
+			} else {
+				result.style.removeProperty('backgroundColor');
+				resultValidity.innerText = '';
+			}
+
+			// Display JSON
+			result.innerHTML = JSON.stringify(resultObj, null, 4);
 		}
 
 		function copyToClipboard(str) {
