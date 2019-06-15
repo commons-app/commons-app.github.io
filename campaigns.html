@@ -27,6 +27,8 @@
 			<div class="btn-group mb-4 mt-3" role="group">
 				<button onclick="addSection()" type="button" class="btn btn-outline-primary">Add campaign</button>
 				<button id="removeSectionButton" onclick="removeSection()" type="button" class="btn btn-outline-primary">Remove campaign</button>
+				<button onclick="importFromPaste()" type="button" class="btn btn-outline-primary">Import from paste</button>
+				<button onclick="importFromGithub()" type="button" class="btn btn-outline-primary">Import from GitHub</button>
 			</div>
 		</section>
 
@@ -151,6 +153,54 @@
 			textarea.select();
 			document.execCommand('copy');
 			document.body.removeChild(textarea);
+		}
+
+		function importFromPaste() {
+			const result = prompt("Paste in campaigns.json");
+			if (result != null && result.trim() != "") importFromText(result);
+		}
+
+		function importFromGithub() {
+			fetch('https://raw.githubusercontent.com/commons-app/campaigns/master/campaigns.json')
+				.then(res => res.text())
+				.then(importFromText);
+		}
+
+		function importFromText(data) {
+			let parsed;
+
+			try {
+				parsed = JSON.parse(data);
+			} catch (err) {
+				alert("Could not parse JSON for import, see console for details");
+				console.error(err);
+				return;
+			}
+			
+			if (validate == null) {
+				alert("Validation function not instantiated. Please try again in a few seconds.");
+			}
+
+			if (!validate(parsed)) {
+				alert("Imported JSON does not comply with schema, see console for details");
+				console.error(validate.error);
+				return;
+			}
+
+			document.getElementById('showOnlyLiveCampaigns').checked = parsed.config.showOnlyLiveCampaigns;
+			document.getElementById('sortBy').value = parsed.config.sortBy;
+
+			form.innerHTML = "";
+			parsed.campaigns.forEach((campaign, n) => {
+				addSection();
+				document.getElementById(`title${n}`).value = campaign.title;
+				document.getElementById(`description${n}`).value = campaign.description;
+				document.getElementById(`startDate${n}`).value = campaign.startDate;
+				document.getElementById(`endDate${n}`).value = campaign.endDate;
+				document.getElementById(`link${n}`).value = campaign.link;
+			});
+
+			generateJSON();
 		}
 	</script>
 </body>
