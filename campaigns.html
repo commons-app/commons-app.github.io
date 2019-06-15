@@ -37,8 +37,8 @@
 
 		<section class="py-4">
 			<h2>Result</h2>
-			<pre class="form-control" id="result"></pre>
 			<p id="resultValidity"></p>
+			<pre class="form-control" id="result"></pre>
 			<div class="btn-group" role="group">
 				<button onclick="copyToClipboard(result.innerText);this.innerText='Copied';setTimeout(() => {this.innerText='Copy to clipboard'}, 750);" type="button" class="btn btn-outline-primary">Copy to clipboard</button>
 			</div>
@@ -55,10 +55,10 @@
 		const form = document.getElementById('form');
 		const result = document.getElementById('result');
 		const resultValidity = document.getElementById('resultValidity');
-		let validatorFunc = null;
+		let validate = null;
 		fetch('https://raw.githubusercontent.com/commons-app/campaigns/master/schema.json')
 			.then(res => res.json())
-			.then(schema => validatorFunc = (new Ajv()).compile(schema))
+			.then(schema => validate = (new Ajv()).compile(schema))
 			.then(() => generateJSON());
 		addSection();
 
@@ -112,10 +112,12 @@
 			}
 
 			// Validate JSON
-			if (validatorFunc != null) {
-				const isValid = validatorFunc(resultObj);
+			if (validate != null) {
+				const isValid = validate(resultObj);
 				result.style.backgroundColor = isValid ? 'rgba(0,255,0,0.1)' : 'rgba(255,0,0,0.2)';
-				resultValidity.innerText = isValid ? 'JSON valid ✔️' : 'JSON invalid ❌';
+				resultValidity.innerText = isValid ?
+					'JSON valid ✔️' :
+					`JSON invalid ❌${validate.errors.map(error => `\n${error.dataPath} ${error.message}`)}`;
 			} else {
 				result.style.removeProperty('backgroundColor');
 				resultValidity.innerText = '';
