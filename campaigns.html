@@ -6,36 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Commons Mobile App Campaign Editor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+	<style>
+		.campaign {
+			border: 1px solid #ced4da;
+			border-radius: .25rem;
+			background: #fafafa;
+			margin-left: 0;
+			margin-right: 0;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="container py-4">
-		<h1 class="py-4">Campaign editor</h1>
-
-		<section class="py-4">
-			<h2>Config</h2>
-			<form class="pb-4" oninput="generateJSON()" onchange="generateJSON()">
-				<div class="form-check py-2">
-					<input type="checkbox" class="form-check-input" id="showOnlyLiveCampaigns">
-					<label class="form-check-label" for="showOnlyLiveCampaigns">Show only live campaigns</label>
-				</div>
-				<div class="form-group py-2">
-					<label for="sortBy">Sort by</label>
-					<input type="text" class="form-control" id="sortBy" placeholder="title/startDate/endDate">
-				</div>
-			</form>
-		</section>
+    <div class="container my-4">
+		<h1 class="my-4">Campaign editor</h1>
 		
-		<section>
+		<section class="my-2">
 			<h2>Campaigns</h2>
 			<form oninput="generateJSON()" onchange="generateJSON()" id="form"></form>
-			<div class="btn-group pb-4" role="group">
+			<div class="btn-group mb-4 mt-3" role="group">
 				<button onclick="addSection()" type="button" class="btn btn-outline-primary">Add campaign</button>
+				<button id="removeSectionButton" onclick="removeSection()" type="button" class="btn btn-outline-primary">Remove campaign</button>
 			</div>
 		</section>
 
-		<section class="py-4">
+		<section class="my-2">
+				<h2>Config</h2>
+				<form class="pb-4" oninput="generateJSON()" onchange="generateJSON()">
+					<div class="form-check my-2">
+						<input type="checkbox" class="form-check-input" id="showOnlyLiveCampaigns">
+						<label class="form-check-label" for="showOnlyLiveCampaigns">Show only live campaigns</label>
+					</div>
+					<div class="form-group my-2">
+						<label for="sortBy">Sort by</label>
+						<input type="text" class="form-control" id="sortBy" placeholder="title/startDate/endDate">
+					</div>
+				</form>
+			</section>
+
+		<section class="my-4">
 			<h2>Result</h2>
 			<p id="resultValidity"></p>
 			<pre class="form-control" id="result"></pre>
@@ -66,40 +75,48 @@
 			const section = document.createElement("div");
 			const n = form.childElementCount;
 			section.innerHTML = 
-				`<div class="form-group">
+				`<div class="form-group col-sm-6">
 					<label for="title${n}">Title</label>
 					<input type="text" class="form-control" id="title${n}" placeholder="Wiki Loves Monuments">
 				</div>
-				<div class="form-group">
+				<div class="form-group col-sm-6">
 					<label for="description${n}">Description</label>
 					<input type="text" class="form-control" id="description${n}" placeholder="Wiki Loves Monuments">
 				</div>
-				<div class="form-group">
+				<div class="form-group col-sm-4 col-md-3">
 					<label for="startDate${n}">Start date</label>
 					<input type="date" class="form-control" id="startDate${n}" placeholder="2018-09-01">
 				</div>
-				<div class="form-group">
+				<div class="form-group col-sm-4 col-md-3">
 					<label for="endDate${n}">End date</label>
 					<input type="date" class="form-control" id="endDate${n}" placeholder="2018-09-01">
 				</div>
-				<div class="form-group">
+				<div class="form-group col-sm-4 col-md-6">
 					<label for="link${n}">Link</label>
 					<input type="url" class="form-control" id="link${n}" placeholder="https://www.wikilovesmonuments.org/contest/">
 				</div>`;
-			section.classList.add(["py-2"]);
+			section.classList.add("mt-3", "pt-3", "pb-2", "row", "campaign");
 			form.appendChild(section);
+			document.getElementById('removeSectionButton').disabled = false;
+		}
+
+		function removeSection() {
+			if (form.childElementCount == 0) return;
+
+			form.removeChild(form.children[form.childElementCount - 1]);
+			generateJSON();
+
+			if (form.childElementCount == 0) document.getElementById('removeSectionButton').disabled = true;
 		}
 
 		function generateJSON() {
-			const campaigns = [...form.children].map((e, n) => {
-				return {
-					"title": document.getElementById(`title${n}`).value,
-					"description": document.getElementById(`description${n}`).value,
-					"startDate": document.getElementById(`startDate${n}`).value,
-					"endDate": document.getElementById(`endDate${n}`).value,
-					"link": document.getElementById(`link${n}`).value
-				}
-			}).filter(campaign => campaign.title.trim().length != 0);
+			const campaigns = [...form.children].map((e, n) => ({
+				"title": document.getElementById(`title${n}`).value,
+				"description": document.getElementById(`description${n}`).value,
+				"startDate": document.getElementById(`startDate${n}`).value,
+				"endDate": document.getElementById(`endDate${n}`).value,
+				"link": document.getElementById(`link${n}`).value
+			})).filter(campaign => campaign.title.trim().length != 0);
 
 			const config = {
 				"showOnlyLiveCampaigns": document.getElementById('showOnlyLiveCampaigns').checked,
