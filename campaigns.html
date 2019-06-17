@@ -83,11 +83,11 @@
 			const section = document.createElement("div");
 			const n = form.childElementCount;
 			section.innerHTML = 
-				`<div class="form-group col-sm-6">
+				`<div class="form-group col-md-6">
 					<label for="title${n}">Title</label>
 					<input type="text" class="form-control" id="title${n}" placeholder="Wiki Loves Monuments">
 				</div>
-				<div class="form-group col-sm-6">
+				<div class="form-group col-md-6">
 					<label for="description${n}">Description</label>
 					<div class="input-group">
 						<input type="text" class="form-control" id="description${n}" placeholder="Wiki Loves Monuments">
@@ -96,17 +96,17 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-group col-sm-4 col-md-3">
+				<div class="form-group col-sm-6 col-md-3">
 					<label for="startDate${n}">Start date</label>
 					<input type="date" class="form-control" id="startDate${n}" placeholder="2018-09-01">
 				</div>
-				<div class="form-group col-sm-4 col-md-3">
+				<div class="form-group col-sm-6 col-md-3">
 					<label for="endDate${n}">End date</label>
 					<input type="date" class="form-control" id="endDate${n}" placeholder="2018-09-01">
 				</div>
-				<div class="form-group col-sm-4 col-md-6">
+				<div class="form-group col-md-6">
 					<label for="link${n}">Link</label>
-					<input type="url" class="form-control" id="link${n}" placeholder="https://www.wikilovesmonuments.org/contest/">
+					<input type="url" class="form-control" id="link${n}" placeholder="https://www.wikilovesmonuments.org">
 				</div>`;
 			section.classList.add("mt-3", "pt-3", "pb-2", "row", "campaign");
 			form.appendChild(section);
