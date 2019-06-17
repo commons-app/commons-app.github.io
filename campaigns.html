@@ -72,6 +72,7 @@
 		const form = document.getElementById('form');
 		const result = document.getElementById('result');
 		const resultValidity = document.getElementById('resultValidity');
+		let campaignCounter = 0;
 		let validate = null;
 		fetch('https://raw.githubusercontent.com/commons-app/campaigns/master/schema.json')
 			.then(res => res.json())
@@ -81,7 +82,7 @@
 
 		function addSection() {
 			const section = document.createElement("div");
-			const n = form.childElementCount;
+			const n = campaignCounter++;
 			section.innerHTML = 
 				`<div class="form-group col-md-6">
 					<label for="title${n}">Title</label>
@@ -107,23 +108,32 @@
 				<div class="form-group col-md-6">
 					<label for="link${n}">Link</label>
 					<input type="url" class="form-control" id="link${n}" placeholder="https://www.wikilovesmonuments.org">
+				</div>
+				<div class="form-group col-md-12">
+					<button onclick="removeSection(${n})" type="button" class="btn btn-outline-danger btn-block">Remove</button>
 				</div>`;
 			section.classList.add("mt-3", "pt-3", "pb-2", "row", "campaign");
+			section.id = `campaign${n}`;
 			form.appendChild(section);
 			document.getElementById('removeSectionButton').disabled = false;
 		}
 
-		function removeSection() {
-			if (form.childElementCount == 0) return;
+		function removeSection(n) {
+			if (n == undefined) {
+				if (form.childElementCount == 0) throw new Error("No sections to remove");
+				form.removeChild(form.children[form.childElementCount - 1]);
+			} else {
+				form.removeChild(document.getElementById(`campaign${n}`));
+			}
 
-			form.removeChild(form.children[form.childElementCount - 1]);
 			generateJSON();
-
 			if (form.childElementCount == 0) document.getElementById('removeSectionButton').disabled = true;
 		}
 
 		function generateJSON() {
-			const campaigns = [...form.children].map((e, n) => ({
+			const campaigns = [...form.children]
+			.map(e => e.id.slice(-1))
+			.map(n => ({
 				"title": document.getElementById(`title${n}`).value,
 				"description": document.getElementById(`description${n}`).value,
 				"startDate": document.getElementById(`startDate${n}`).value,
@@ -206,7 +216,8 @@
 			document.getElementById('sortBy').value = parsed.config.sortBy;
 
 			form.innerHTML = "";
-			parsed.campaigns.forEach((campaign, n) => {
+			parsed.campaigns.forEach(campaign => {
+				const n = campaignCounter;
 				addSection();
 				document.getElementById(`title${n}`).value = campaign.title;
 				document.getElementById(`description${n}`).value = campaign.description;
