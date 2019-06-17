@@ -89,7 +89,12 @@
 				</div>
 				<div class="form-group col-sm-6">
 					<label for="description${n}">Description</label>
-					<input type="text" class="form-control" id="description${n}" placeholder="Wiki Loves Monuments">
+					<div class="input-group">
+						<input type="text" class="form-control" id="description${n}" placeholder="Wiki Loves Monuments">
+						<div class="input-group-append">
+							<button onclick="description${n}.value = title${n}.value" type="button" class="btn btn-outline-primary input-group-text">Copy title</button>
+						</div>
+					</div>
 				</div>
 				<div class="form-group col-sm-4 col-md-3">
 					<label for="startDate${n}">Start date</label>
