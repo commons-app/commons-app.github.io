@@ -30,8 +30,8 @@
 				<div class="btn-group" role="group">
 					<button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Import</button>
 					<div class="dropdown-menu">
-						<button onclick="importFromGithub()" type="button" class="btn btn-outline-primary dropdown-item">Live version</button>
-						<button onclick="importFromPaste()" type="button" class="btn btn-outline-primary dropdown-item">From paste</button>
+						<button onclick="overwriteConfirm(importFromGithub)" type="button" class="btn btn-outline-primary dropdown-item">Live version</button>
+						<button onclick="overwriteConfirm(importFromPaste)" type="button" class="btn btn-outline-primary dropdown-item">From paste</button>
 					</div>
 				</div>
 			</div>
@@ -159,6 +159,10 @@
 			textarea.select();
 			document.execCommand('copy');
 			document.body.removeChild(textarea);
+		}
+
+		function overwriteConfirm(f) {
+			if(confirm("Warning: importing will overwrite the current data. Do you want to proceed?")) f();
 		}
 
 		function importFromPaste() {
