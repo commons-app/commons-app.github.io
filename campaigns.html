@@ -24,11 +24,16 @@
 		<section class="my-2">
 			<h2>Campaigns</h2>
 			<form oninput="generateJSON()" onchange="generateJSON()" id="form"></form>
-			<div class="btn-group mb-4 mt-3" role="group">
-				<button onclick="addSection()" type="button" class="btn btn-outline-primary">Add campaign</button>
-				<button id="removeSectionButton" onclick="removeSection()" type="button" class="btn btn-outline-primary">Remove campaign</button>
-				<button onclick="importFromPaste()" type="button" class="btn btn-outline-primary">Import from paste</button>
-				<button onclick="importFromGithub()" type="button" class="btn btn-outline-primary">Import from GitHub</button>
+			<div class="btn-group mb-4 mt-3" role="group" style="flex-wrap: wrap;">
+				<button onclick="addSection()" type="button" class="btn btn-outline-primary">Add</button>
+				<button id="removeSectionButton" onclick="removeSection()" type="button" class="btn btn-outline-primary">Remove</button>
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Import</button>
+					<div class="dropdown-menu">
+						<button onclick="importFromGithub()" type="button" class="btn btn-outline-primary dropdown-item">Live version</button>
+						<button onclick="importFromPaste()" type="button" class="btn btn-outline-primary dropdown-item">From paste</button>
+					</div>
+				</div>
 			</div>
 		</section>
 
