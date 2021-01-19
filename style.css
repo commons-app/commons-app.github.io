@@ -176,7 +176,7 @@ body {
 }
 
 /* Documentation Header */
-#docs h2>a, h3>a{
+#docs h2>a, #docs h3>a{
     color: black;
     text-decoration: none;
 }
