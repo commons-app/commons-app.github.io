@@ -3,7 +3,8 @@
 body {
     text-align: center;
     padding-top: 50px;
-
+    background-color: #000;
+    color:#fff;
     /**
      * System font stack for sans-serif fonts
      *
@@ -111,7 +112,7 @@ body {
 
 .item-image {
     height: 440px;
-    background-color: lavender;
+    background-color: powderblue;
     padding: 20px 0;
 }
 
