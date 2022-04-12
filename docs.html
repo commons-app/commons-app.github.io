@@ -54,11 +54,27 @@
         </ol>
 
         <h2 id="editing"><a href="#editing">Editing your picture before upload</a></h2>
-        <p>Most editors degrade picture quality. If you really need to edit a picture before upload, please try to only use <a href="https://github.com/lossless-jpg/data#readme">lossless JPEG editors</a>:</p>
+        <p>Most editors degrade picture quality, making pictures less accurate <b>and</b> bigger in file size. If you need to edit a picture before upload, please try to only use <a href="https://github.com/lossless-jpg/data#readme">lossless JPEG editors</a>:</p>
         <ul>
-            <li><b>Rotate a picture losslessly:</b> Use <a href="https://play.google.com/store/apps/details?id=jp.kame.jpegcropper">JPEG Cropper</a> (or the gallery's built-in rotation tool if you have a Samsung phone).</li>
-            <li><b>Crop a picture losslessly</b>: Use <a href="https://play.google.com/store/apps/details?id=jp.kame.jpegcropper">JPEG Cropper</a>. Alternatively, you can upload first and then crop with <a href="https://croptool.toolforge.org">Croptool</a>.</li>
-            <li><b>Blur people's faces or car plates for privacy reasons, without degrading the quality of the rest of the picture:</b> Unfortunaly no Android app currently offers this feature. If you have access to a Windows computer, use <a href="https://sites.google.com/view/jpegcoll/home_en/usage_en">Jpegcoll</a>.</li>
+            <li>
+                <b>Rotate a picture losslessly:</b>
+                Use <a href="https://play.google.com/store/apps/details?id=jp.kame.jpegcropper">JPEG Cropper</a> (or the gallery's built-in rotation tool if you have a Samsung phone).
+            </li>
+            <li>
+                <b>Crop a picture losslessly</b>:
+                Use <a href="https://play.google.com/store/apps/details?id=jp.kame.jpegcropper">JPEG Cropper</a>. Alternatively, you can upload first and then crop with <a href="https://croptool.toolforge.org">Croptool</a>.
+            </li>
+            <li>
+                <b>Blur people's faces or car plates for privacy reasons, without degrading the quality of the rest of the picture:</b>
+                The only lossless Android app that offers this feature is <a href="https://play.google.com/store/apps/details?id=jp.kame.ajt">AJT</a>, not user-friendly but it does the job:
+                <ol>
+                    <li><a href="https://play.google.com/store/apps/details?id=jp.kame.ajt">Install AJT</a>, open it.</li>
+                    <li>Tap <b>Input</b>, select your picture.</li>
+                    <li>Tap <b>Switch</b> then <b>Transform</b> then <b>TransformType</b> then select <b>-pixelize</b>.</li>
+                    <li>Tap <b>Area Selector</b> then select one area to blur (you have to drag the edges of the white-bordered rectangle, which are initially at the edges of the picture).</li>
+                    <li>Tap <b>Execute</b>, the modified picture should be in your gallery near the original, with an _ajt suffix.</li>
+                </ol>
+            </li>
         </ul>
         <p>Between taking a picture and uploading it, please do not apply color filters, flip horizontally/vertically, add stickers/text, nor apply any restoration/AI/upscaling. Such operations lose original data. If you really want to apply such transformations, please upload the original first, then upload the transformed picture as a new version using <a href="commons.wikimedia.org">the desktop website</a>.</p>
 
