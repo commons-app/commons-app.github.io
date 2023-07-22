@@ -30,6 +30,30 @@ body {
      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
 }
 
+.toggle-theme {
+    color: #f1f1f1;
+}
+
+.dark-mode .toggle-theme::after {
+    content: "☽";
+}
+
+.light-mode .toggle-theme::after {
+    content: "☀";
+
+}
+
+.dark-mode {
+    background-color: #212529;
+    color: #fff !important;
+
+    #docs h2>a,
+    #docs h3>a {
+        color: #fff !important;
+    }
+}
+
+
 .bg-primary {
     background-color: #006699 !important;
 }
