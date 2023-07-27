@@ -104,8 +104,8 @@
             <li><a href="https://developer.android.com/studio/debug/am-logcat#running">View the logs</a>.</li>
         </ol>
         
-        <h2 id="get-content"><a href="#get-content">What is GET_CONTENT?</a></h2>
-        <p>The Commons app lets you pick what picture(s) you want to upload, using either the camera button or what we call a "picker". The "custom picker" has an icon that includes a small Commons logo, because it has Commons-specific features such as checking whether a picture exists on the Commons server or not. The "normal picker" now has two variants: the "classic picker" and the "GET_CONTENT picker" (you may choose your favourite variant from Settings). To sum up, the app now has 3 pickers:</p>
+        <h2 id="get-content"><a href="#get-content">What is Document based picker?</a></h2>
+        <p>The Commons app lets you pick what picture(s) you want to upload, using either the camera button or what we call a "picker". The "custom picker" has an icon that includes a small Commons logo, because it has Commons-specific features such as checking whether a picture exists on the Commons server or not. The "normal picker" now has two variants: the "Document based picker" and the "new Android picker" (you may choose your favourite variant from Settings). To sum up, the app now has 3 pickers:</p>
         <p>
             <ul>
                 <li>The custom picker that you may use in the Contributions tab:</li>
@@ -115,61 +115,73 @@
                          <figcaption>Custom Picker</figcaption>
                      </figure>
                 </center>
-                <li>The classic picker that you may use in the Contributions and Nearby tabs:</li>
+                <li>The Document based picker that you may use in the Contributions and Nearby tabs:</li>
                 <center>
                     <figure>
                          <img src="images/classic_picker.png" height="400">
-                         <figcaption>Classic Picker</figcaption>
+                         <figcaption>Document based picker</figcaption>
                      </figure>
                 </center>
-                <li>The GET_CONTENT picker that you may try in the Contributions and Nearby tab, it varies from device to device:
+                <li>The new Android picker that you may try in the Contributions and Nearby tab, it varies from device to device:
                     <center>
                         <figure>
                             <img src="images/get_content_picker_without_takeover.png" height="400">
-                            <figcaption>GET_CONTENT picker without takeover</figcaption>
+                            <figcaption>The new Android picker without takeover</figcaption>
                         </figure>
                         <figure>
                             <img src="images/get_content_picker_with_takeover.png" height="460">
-                            <figcaption>GET_CONTENT picker with takeover</figcaption>
+                            <figcaption>The new Android picker with takeover</figcaption>
                         </figure>
                     </center>
                 </li>
             </ul>
         </p>
 
-        <h4>How is the new GET_CONTENT picker different from the classic picker?</h4>
-        <p>Android recently introduced a new photo picker for devices having Android 11 or higher. Unfortunately, this photo picker removes location tags from the EXIF metadata of images. The new photo picker takes over GET_CONTENT on some devices. This means you will see the new photo picker and your pictures might lose location information in the EXIF metadata.</p> 
-        <p>In order to preserve location information, we decided to go with the system file picker by default for the classic picker and disabled the GET_CONTENT picker.</p>
+        <h4>How is the new Android picker different from the Document based picker?</h4>
+        <p>Android recently introduced a new photo picker for devices having Android 11 or higher. Unfortunately, this photo picker removes location tags from the EXIF metadata of images.</p> 
+        <p>In order to preserve location information, we decided to go with the system file picker by default for the Document based picker and disabled the new Android picker.</p>
         
         <p>To summarize the advantages and disadvantages:</p>
 
-        <p><b>GET_CONTENT Picker:</b>
+        <p><b>New Android Picker:</b>
             <ul>
                 <li><b>Merits:</b> Lists all image providers as marked in red in the figure above, user-friendly interface.</li>
                 <li><b>Demerit:</b> Removes location tags from EXIF metadata on some devices.</li>
             </ul>
         </p>
-        <p><b>Classic Picker:</b>
+        <p><b>Document based Picker:</b>
             <ul>
                 <li><b>Merit:</b> Preserves location tags on all devices.</li>
                 <li><b>Demerit:</b> Only allows selection from within the app and Google Drive, no third-party image providers displayed.</li>
             </ul>
         </p>
-        <p>You may like to use the classic picker when:</p>
+        <p>You may like to use the Document based picker when:</p>
         <ul>
             <li>You want to share the location information present in the EXIF metadata of the images</li>
             <li>You choose images from within the file picker and do not use any other Gallery app providers</li>
         </ul>
-        <p>You may like to use the GET_CONTENT picker when:</p>
+        <p>You may like to use the new Android picker when:</p>
         <ul>
             <li>You love sharing images from third-party Gallery apps and other such providers and prefer the existing UI</li>
-            <li>You are using a device in which the new photo picker does not take over GET_CONTENT</li>
-            <li>You do not wish to share the location information in the EXIF metadata in case GET_CONTENT takeover is enabled on your device.</li>
+            <li>You are using a device in which the new photo picker is without "takeover". Please refer to the images above to identify if your photo picker is without takeover.</li>
+            <li>You do not wish to share the location information in the EXIF metadata in case takeover is enabled on your device.</li>
         </ul>
 
-        <h4>Can we enjoy the GET_CONTENT picker without takeover?</h4>
-        <p>Absolutely yes! You can easily disable the GET_CONTENT takeover on your device by running a simple command. This will enable the app to display all image providers, allowing you to use them within the app.</p>
-        <p>To run the adb command, follow these steps:</p>
+        <h4>Can we enjoy the third-party Gallery apps even while using the new Android photo picker?</h4>
+        <p>Absolutely yes! You can either use "Browse" within the new Android picker or disable the "takeover" on your device by running a simple command. This will enable the app to display all image providers, allowing you to use them within the app.</p>
+        <h5>Method 1: Using "Browse" within the new Android picker</h5>
+        <p1>To open the system file picker with all the third-party Gallery apps listed, follow the steps given below:</p1>
+        <ol>
+            <li>Ensure that the new Android picker is enabled in the Settings.</li>
+            <li>Open the normal picker. This will open the new Android picker for you.</li>
+            <li>Tap the options icon (the three-dots at the top right corner).</li>
+            <li>Click Browse.</li>
+                <img src="images/new_android_picker_browse.gif" height="400">
+            <li>Tap the hamburger icon (the three horizontal bars on the top left corner).</li>
+        </ol>
+        <p>You can now enjoy all the third-party apps without losing image location!</p>
+        <h5>Method 2: Using adb commands</h5>
+        <p>To run the adb commands, follow these steps:</p>
         <ol>
             <li>Enable developer options and USB debugging on your phone.</li>
             <li>Connect your phone to your computer using a USB cable.</li>
@@ -179,7 +191,7 @@
             <li>Once you have confirmed the connection, execute the following command to disable the takeover:</li>
             <pre><code>adb shell cmd device_config put storage_native_boot take_over_get_content false</code></pre>
         </ol>
-        <p>Now you can easily access all the image providers without losing picture locations by using the GET_CONTENT picker!</p>
+        <p>Now you can easily access all the image providers without losing picture locations while using the new Android picker!</p>
 
         <p align="right"><i><a href="https://github.com/commons-app/commons-app.github.io/blob/master/docs.html">Edit this page</a></i></p>
     </div>
