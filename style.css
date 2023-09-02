@@ -32,15 +32,24 @@ body {
 
 .toggle-theme {
     color: #f1f1f1;
+    opacity: 50%;
+}
+.toggle-theme:hover{
+    opacity: 100%;
+}
+.toggle-theme::after{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(356deg) brightness(106%) contrast(102%);
+    display: block;
+    width: 25px;
+    height: 25px;
 }
 
 .dark-mode .toggle-theme::after {
-    content: "☽";
+    content: url("images/moon.svg");
 }
 
 .light-mode .toggle-theme::after {
-    content: "☀";
-
+    content: url("images/sun.svg");
 }
 
 .dark-mode {
