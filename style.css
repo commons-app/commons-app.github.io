@@ -60,6 +60,9 @@ body {
     #docs h3>a {
         color: #fff !important;
     }
+    .shadow {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.85) !important;
+    }
 }
 
 
