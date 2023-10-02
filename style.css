@@ -42,6 +42,8 @@ body {
     display: block;
     width: 25px;
     height: 25px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .dark-mode .toggle-theme::after {
@@ -63,8 +65,34 @@ body {
     .shadow {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.85) !important;
     }
+    a {
+        color: #99caff !important;
+    }
+    a:hover {
+        color: #7bbaff !important;
+    }
+    .btn-outline-primary {
+        border-color: #99caff !important;
+    }
+    .btn-outline-primary:hover {
+        border-color: #70cfff !important;
+    }
+    /* .badge-primary {
+        background-color: #99caff !important;
+    } */
+    li::before {
+        color: #70cfff !important;
+    }
+    .text-success {
+        color: #6cdc86 !important;
+    }
+    .text-danger {
+        color: #ea868f !important;
+    }
+    .section-divider {
+        filter: brightness(140%);
+    }
 }
-
 
 .bg-primary {
     background-color: #006699 !important;
