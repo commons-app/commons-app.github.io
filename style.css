@@ -27,17 +27,19 @@ body {
      * [1]: https://phabricator.wikimedia.org/T175877
      * [2]: https://getbootstrap.com/docs/4.1/content/reboot/#native-font-stack
      */
-     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
 }
 
 .toggle-theme {
     color: #f1f1f1;
     opacity: 50%;
 }
-.toggle-theme:hover{
+
+.toggle-theme:hover {
     opacity: 100%;
 }
-.toggle-theme::after{
+
+.toggle-theme::after {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(356deg) brightness(106%) contrast(102%);
     display: block;
     width: 25px;
@@ -58,43 +60,54 @@ body {
     background-color: #212529;
     color: #fff !important;
 
-    #docs h2>a,
-    #docs h3>a {
-        color: #fff !important;
-    }
-    .shadow {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.85) !important;
-    }
-    a {
-        color: #99caff !important;
-    }
-    a:hover {
-        color: #7bbaff !important;
-    }
-    .btn-outline-primary {
-        border-color: #99caff !important;
-    }
-    .btn-outline-primary:hover {
-        border-color: #70cfff !important;
-    }
-    /* .badge-primary {
-        background-color: #99caff !important;
-    } */
-    li::before {
-        color: #70cfff !important;
-    }
-    .text-success {
-        color: #6cdc86 !important;
-    }
-    .text-danger {
-        color: #ea868f !important;
-    }
-    .section-divider {
-        filter: brightness(140%);
-    }
 }
 
-.bg-primary {
+.dark-mode #docs h2>a,
+.dark-mode #docs h3>a {
+    color: #fff !important;
+}
+
+.dark-mode .shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.85) !important;
+}
+
+.dark-mode a {
+    color: #99caff !important;
+}
+
+.dark-mode a:hover {
+    color: #7bbaff !important;
+}
+
+.dark-mode .btn-outline-primary {
+    border-color: #99caff !important;
+}
+
+.dark-mode .btn-outline-primary:hover {
+    border-color: #70cfff !important;
+}
+
+/* .badge-primary {
+        background-color: #99caff !important;
+    } */
+.dark-mode li::before {
+    color: #70cfff !important;
+}
+
+.dark-mode .text-success {
+    color: #6cdc86 !important;
+}
+
+.dark-mode .text-danger {
+    color: #ea868f !important;
+}
+
+.dark-mode .section-divider {
+    filter: brightness(140%);
+}
+
+
+.dark-mode .bg-primary {
     background-color: #006699 !important;
 }
 
@@ -240,7 +253,8 @@ body {
 }
 
 /* Documentation Header */
-#docs h2>a, #docs h3>a{
+#docs h2>a,
+#docs h3>a {
     color: black;
     text-decoration: none;
 }
