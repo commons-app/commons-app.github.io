@@ -279,3 +279,19 @@ footer h2 {
 .qr-code-div {
     padding: 30px 15px;
 }
+/* stylings for the commons guidelines secttion */
+.commons-guidelines .list-group-item {
+    background-color: #f8f9fa;
+    color: #212529;
+    border-color: rgba(0, 0, 0, 0.125);
+}
+
+.dark-mode .commons-guidelines .list-group-item {
+    background-color: #2b2f33;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .commons-guidelines .list-group-item small {
+    color: #cfcfcf;
+}
